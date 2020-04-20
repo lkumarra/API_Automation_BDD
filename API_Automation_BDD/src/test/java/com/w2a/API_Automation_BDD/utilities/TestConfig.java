@@ -1,18 +1,19 @@
 package com.w2a.API_Automation_BDD.utilities;
+
 public class TestConfig{
 
 
 	
 	public static String server="smtp.gmail.com";
-	public static String from = "lavendrarajput2001@gmail.com";
-	public static String password = "Lav123456@";
+	public static String from = "lavendra.rajputc1@gmail.com";
+	public static String password = "9719579316";
 	public static String[] to ={"lavendrarajput2001@gmail.com","lavendra.rajputc1@gmail.com"};
 	public static String subject = "Extent Project Report";
 	
 	public static String messageBody ="TestMessage";
 	public static String attachmentPath="c:\\screenshot\\2017_10_3_14_49_9.jpg";
 	public static String attachmentName="error.jpg";
-	
+
 	
 	
 	//SQL DATABASE DETAILS	
@@ -27,13 +28,5 @@ public class TestConfig{
 	public static String mysqluserName = "root";
 	public static String mysqlpassword = "selenium";
 	public static String mysqlurl = "jdbc:mysql://localhost:3306/acs";
-	
-	
-	
-	
-	
-	
-	
-	
 	
 }

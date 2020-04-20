@@ -39,16 +39,11 @@ public class ExtentReportListner {
 	}
 
 	public static void testStepHandle(String teststatus, ExtentTest extenttest, Throwable throwable) {
-		switch (teststatus) {
-		case "FAIL":
+		if (extenttest.equals("FAIL")) {
 			extenttest.fail(MarkupHelper.createLabel("Test Case is Failed : ", ExtentColor.RED));
 			extenttest.error(throwable.fillInStackTrace());
-			break;
-		case "PASS":
+		} else if (extenttest.equals("PASS")) {
 			extenttest.pass(MarkupHelper.createLabel("Test Case is Passed : ", ExtentColor.GREEN));
-			break;
-		default:
-			break;
 		}
 	}
 

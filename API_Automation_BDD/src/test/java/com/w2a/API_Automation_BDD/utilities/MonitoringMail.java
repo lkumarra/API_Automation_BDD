@@ -28,7 +28,6 @@ public class MonitoringMail
 		props.put("mail.smtp.starttls.enable", "true");
 		props.put("mail.smtp.EnableSSL.enable","true");
 		props.put("mail.smtp.auth", "true");
-
 		props.put("mail.smtp.host", mailServer); 
 		props.put("mail.debug", "true");
 		

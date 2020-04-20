@@ -1,5 +1,7 @@
 package com.w2a.API_Automation_BDD.listners;
 
+
+
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
@@ -19,7 +21,7 @@ import com.w2a.API_Automation_BDD.utilities.TestConfig;
 
 import io.restassured.RestAssured;
 
-public class CustomListmers extends ExtentReportListner implements ITestListener, ISuiteListener {
+public class CustomListmers extends ExtentReportListner implements ITestListener,ISuiteListener {
 
 	public void onTestStart(ITestResult result) {
 
@@ -52,22 +54,19 @@ public class CustomListmers extends ExtentReportListner implements ITestListener
 		extent.flush();
 	}
 
-	@Override
 	public void onStart(ISuite suite) {
 		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void onFinish(ISuite suite) {
 		MonitoringMail mail = new MonitoringMail();
 		String messageBody = null;
 		 
 		try {
 			messageBody = "http://" + InetAddress.getLocalHost().getHostAddress()
-					+ ":8080/job/DataDrivenFramework/TestReports/";
+					+ ":8080/job/API_Automation_BDD/TestReports/";
 		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	

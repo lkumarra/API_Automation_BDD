@@ -44,7 +44,9 @@ public class CreateCustomerAPISteps extends ExtentReportListner {
 			logInfo = test.createNode(new GherkinKeyword("Given"),
 					" i_set_the_authentication_using_the_invalid_secret_key");
 			logInfo.info("I set the authentication successfully");
-		} catch (AssertionError | Exception e) {
+		} catch (AssertionError e) {
+			testStepHandle("FAIL", logInfo, e);
+		} catch (Exception e) {
 			testStepHandle("FAIL", logInfo, e);
 		}
 
@@ -56,9 +58,12 @@ public class CreateCustomerAPISteps extends ExtentReportListner {
 		try {
 			logInfo = test.createNode(new GherkinKeyword("Given"), " i_set_as_email_of_the_customer");
 			logInfo.info("I set " + customerEmail + " as the email in the request");
-		} catch (AssertionError | Exception e) {
+		} catch (AssertionError e) {
+			testStepHandle("FAIL", logInfo, e);
+		} catch (Exception e) {
 			testStepHandle("FAIL", logInfo, e);
 		}
+
 	}
 
 	@Given("I pass {string} as description")
@@ -67,9 +72,12 @@ public class CreateCustomerAPISteps extends ExtentReportListner {
 		try {
 			logInfo = test.createNode(new GherkinKeyword("Given"), "i_set_as_the_description_of_the_customer");
 			logInfo.info("I set " + customerDescription + " as the description in the request");
-		} catch (AssertionError | Exception e) {
+		} catch (AssertionError e) {
+			testStepHandle("FAIL", logInfo, e);
+		} catch (Exception e) {
 			testStepHandle("FAIL", logInfo, e);
 		}
+
 	}
 
 	@When("I send a post request to url")
@@ -80,9 +88,12 @@ public class CreateCustomerAPISteps extends ExtentReportListner {
 			logInfo = test.createNode(new GherkinKeyword("When"), "i_send_a_Post_request_to_the_url");
 			logInfo.info("I send a post request");
 			logInfo.info(response.asString());
-		} catch (AssertionError | Exception e) {
+		} catch (AssertionError e) {
+			testStepHandle("FAIL", logInfo, e);
+		} catch (Exception e) {
 			testStepHandle("FAIL", logInfo, e);
 		}
+
 	}
 
 	@Then("I should get {int} as the status code in response")
@@ -92,9 +103,12 @@ public class CreateCustomerAPISteps extends ExtentReportListner {
 			logInfo = test.createNode(new GherkinKeyword("Then"),
 					"i_should_get_" + expectedStatusCode + "as_the_response_status_code");
 			logInfo.info("I got " + response.getStatusCode() + " as the expected status code");
-		} catch (AssertionError | Exception e) {
+		} catch (AssertionError e) {
+			testStepHandle("FAIL", logInfo, e);
+		} catch (Exception e) {
 			testStepHandle("FAIL", logInfo, e);
 		}
+
 	}
 
 	@Then("I should get {string} as email in the response")
@@ -105,7 +119,9 @@ public class CreateCustomerAPISteps extends ExtentReportListner {
 			logInfo = test.createNode(new GherkinKeyword("Then"),
 					"the_email_in_the_response_should_be " + expectedEmail);
 			logInfo.info("The email in the response is " + response.jsonPath().get("email"));
-		} catch (AssertionError | Exception e) {
+		} catch (AssertionError e) {
+			testStepHandle("FAIL", logInfo, e);
+		} catch (Exception e) {
 			testStepHandle("FAIL", logInfo, e);
 		}
 
@@ -118,9 +134,12 @@ public class CreateCustomerAPISteps extends ExtentReportListner {
 			logInfo = test.createNode(new GherkinKeyword("Then"),
 					"he_description_in_the_response_should_be " + expectedDescription);
 			logInfo.info("The description  in the response is " + response.jsonPath().get("description"));
-		} catch (AssertionError | Exception e) {
+		} catch (AssertionError e) {
+			testStepHandle("FAIL", logInfo, e);
+		} catch (Exception e) {
 			testStepHandle("FAIL", logInfo, e);
 		}
+
 	}
 
 	@Then("The customer id filed should not be null")
@@ -129,7 +148,9 @@ public class CreateCustomerAPISteps extends ExtentReportListner {
 		try {
 			logInfo = test.createNode(new GherkinKeyword("Then"), "i_should_get_id_field_in_the_response");
 			logInfo.info("Id field is available in the respons, whose value is " + response.jsonPath().get("id"));
-		} catch (AssertionError | Exception e) {
+		} catch (AssertionError e) {
+			testStepHandle("FAIL", logInfo, e);
+		} catch (Exception e) {
 			testStepHandle("FAIL", logInfo, e);
 		}
 
